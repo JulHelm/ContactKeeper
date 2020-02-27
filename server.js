@@ -1,6 +1,13 @@
 const express = require('express');
+const connectDB = require('./config/db');
 
 const app = express();
+
+//Connect db
+connectDB();
+
+//init Middleware to use body data of the request bodies
+app.use(express.json({ extended: false }));
 
 //adding an endpoint for requests: res.sendFile, json, or just send and more possible. as we
 // do a json API we will set it to json
